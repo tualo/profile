@@ -9,6 +9,7 @@
             "email": "thomas.hoffmann@tualo.de"
         }
     ],
+    
     "autoload": {
         "psr-4": {
             "Tualo\\Office\\Profile\\": "src/"
@@ -17,6 +18,5 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "phpseclib/phpseclib": "^3.0"
     }
 }
