@@ -14,6 +14,14 @@ Ext.define('Tualo.profile.lazy.controller.ProfilePanel', {
         window.history.back();
     },
     logout: function(){
+        let fn = async function(){
+            let res = await fetch('./logout');
+            let o = await res.json();
+            if (o.success){
+                window.location.replace(  window.location.origin+window.location.pathname );
+            }
+        }
+        fn();
     },
     save: async function(){
         let res= await Tualo.Fetch.post('./profile/save', this.getView().down('form').getForm().getValues() );

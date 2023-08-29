@@ -7,7 +7,7 @@ use YoHang88\LetterAvatar\LetterAvatar;
 
 class ProfileRoute implements IRoute{
     public static function register(){
-
+        
         Route::add('/profile/read',function(){
             TualoApplication::result('success',false);
         
