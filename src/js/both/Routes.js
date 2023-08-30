@@ -28,11 +28,7 @@ Ext.define('Tualo.routes.ProfileLogout',{
                 try{
                     let res = await fetch('./logout');
                     let o = await res.json();
-                    console.log(o);
                     if (o.success){
-                        console.log('here');
-                        alert(123);
-
                         window.location.replace(  window.location.origin+window.location.pathname );
                     }
                 }catch(e){
