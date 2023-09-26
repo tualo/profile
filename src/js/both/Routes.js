@@ -1,5 +1,15 @@
 Ext.Loader.setPath('Tualo.profile.lazy', './jsprofile');
 Ext.define('Tualo.routes.Profile',{
+    statics: {
+        load: async function() {
+            return [
+                {
+                    name: 'profile',
+                    path: '#profile'
+                }
+            ]
+        }
+    }, 
     url: 'profile',
     handler: {
         action: function( ){
@@ -18,6 +28,16 @@ Ext.define('Tualo.routes.Profile',{
 
 
 Ext.define('Tualo.routes.ProfileLogout',{
+    statics: {
+        load: async function() {
+            return [
+                {
+                    name: 'profile/logout',
+                    path: '#profile/logout'
+                }
+            ]
+        }
+    },
     url: 'profile/logout',
     handler: {
         action: function( ){
