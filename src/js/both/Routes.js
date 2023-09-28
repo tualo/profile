@@ -27,6 +27,48 @@ Ext.define('Tualo.routes.Profile',{
 });
 
 
+
+Ext.define('Tualo.routes.ProfileSwitchclient',{
+    statics: {
+        load: async function() {
+
+            let list = [];
+            Ext.getApplication().sessionPing.clients.forEach(element => {
+                list.push([
+                    {
+                        name: 'Systemwechsel zu '+element.client,
+                        path: '#profile/switchclient/'+element.client
+                    }
+                ])
+            });
+
+            return list;
+        }
+    },
+    url: 'profile/switchclient/:clientid',
+    handler: {
+        action: function( clientid){
+            console.log('before',arguments);
+            let fn = async function(){
+                try{
+                    let res = await (await fetch('./profile/switchclient/'+clientid)).json();
+                    if (res.success){
+                        window.location.replace(res.url);
+                    }
+                }catch(e){
+
+                }
+            }
+            fn();
+        },
+            
+        before: function (clientid, action) {
+            console.log('before',arguments);
+            action.resume();
+            
+        }
+    }
+});
 Ext.define('Tualo.routes.ProfileLogout',{
     statics: {
         load: async function() {
