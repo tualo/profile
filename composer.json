@@ -18,6 +18,6 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "lasserafn/php-initial-avatar-generator": "*"
+        "lasserafn/php-initial-avatar-generator": "4.3"
     }
 }
