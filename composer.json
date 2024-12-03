@@ -18,6 +18,9 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "lasserafn/php-initial-avatar-generator": "4.3"
+        "lasserafn/php-initial-avatar-generator": "4.3",
+        "tualo/fontawesome": "*",
+        "tualo/ds": "*",
+        "tualo/stripe": "*"
     }
 }
