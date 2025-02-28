@@ -14,6 +14,7 @@ class SwitchClient implements IRoute{
             $clients = $_SESSION['tualoapplication']['clients'];
             $clientid = $matches['clientid'];
             App::result('success', false );
+            App::result('clients', $clients );
             foreach($clients as $client ){
                 if($client['client']==$clientid){
 
