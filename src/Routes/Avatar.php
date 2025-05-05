@@ -32,14 +32,22 @@ class Avatar implements IRoute
                     TualoApplication::body(file_get_contents($gravatar_url));
                 } else {
 
-                    $name =  $db->dbname;
-                    $avatar = new InitialAvatar();
                     /*
+                    
+                    $avatar = new InitialAvatar();
                     $image = $avatar->name('OK')->generate();
                     TualoApplication::contenttype('image/jpeg');
                     TualoApplication::body($image->response('jpeg', $size));
 */
-                    $avatar->name('Lasse Rafn')
+                    TualoApplication::contenttype('image/png');
+                    $name =  $db->dbname;
+                    $avatar = new InitialAvatar();
+                    $image = $avatar->name($name)->generate();
+
+                    TualoApplication::body($image->response('png', $size));
+
+                    /*
+                    $avatar->name($name)
                         ->length(2)
                         ->fontSize(0.5)
                         ->size(96) // 48 * 2
@@ -48,6 +56,7 @@ class Avatar implements IRoute
                         ->generate()
                         ->stream('png', 100);
                     exit();
+                    */
                 }
             } catch (\Exception $e) {
                 echo $e->getMessage();
