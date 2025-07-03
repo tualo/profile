@@ -1,26 +1,28 @@
 {
-    "name": "tualo/profile",
-    "description": "tualo - profile",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Hoffmann",
-            "email": "thomas.hoffmann@tualo.de"
-        }
-    ],
-    
-    "autoload": {
-        "psr-4": {
-            "Tualo\\Office\\Profile\\": "src/"
-        },
-        "files": ["src/functions.php"]
-    },
-    "minimum-stability": "dev",
-    "require": {
-        "lasserafn/php-initial-avatar-generator": "4.3",
-        "tualo/fontawesome": "*",
-        "tualo/ds": "*",
-        "tualo/stripe": "*"
+  "name": "tualo/profile",
+  "description": "tualo - profile",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Hoffmann",
+      "email": "thomas.hoffmann@tualo.de"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tualo\\Office\\Profile\\": "src/"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "lasserafn/php-initial-avatar-generator": "4.3",
+    "tualo/fontawesome": "*",
+    "tualo/ds": "^1.0.1",
+    "tualo/stripe": "*"
+  },
+  "version": "1.0.1"
 }
