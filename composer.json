@@ -21,7 +21,7 @@
   "require": {
     "lasserafn/php-initial-avatar-generator": "4.3",
     "tualo/fontawesome": "^1.0.2",
-    "tualo/ds": "^1.0.3"
+    "tualo/ds": "^1.0.6"
   },
-  "version": "1.0.3"
+  "version": "1.0.4"
 }
