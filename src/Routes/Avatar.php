@@ -26,12 +26,12 @@ class Avatar implements IRoute
                     $size = 44;
 
                     $gravatar_url = "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email_id))) . "?d=" . urlencode($default) . "&s=" . $size;
-
+                    http_response_code(200);
                     header("content-type: image/jpeg");
                     TualoApplication::contenttype('image/jpeg');
                     TualoApplication::body(file_get_contents($gravatar_url));
                 } else {
-
+                    http_response_code(200);
                     /*
                     
                     $avatar = new InitialAvatar();
@@ -59,6 +59,7 @@ class Avatar implements IRoute
                     */
                 }
             } catch (\Exception $e) {
+
                 echo $e->getMessage();
                 exit();
                 $avatar = new InitialAvatar();
@@ -79,13 +80,14 @@ class Avatar implements IRoute
                     $default = "identicon";
 
                     $gravatar_url = "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email_id))) . "?d=" . urlencode($default) . "&s=" . $size;
-
+                    http_response_code(200);
                     header("content-type: image/jpeg");
                     TualoApplication::contenttype('image/jpeg');
                     TualoApplication::body(file_get_contents($gravatar_url));
                 } else {
                     $name =  $matches['name'];
                     $avatar = new InitialAvatar();
+                    http_response_code(200);
                     $image = $avatar->name($name)->generate();
                     TualoApplication::contenttype('image/png');
                     TualoApplication::body($image->response('png', $size));
@@ -105,7 +107,7 @@ class Avatar implements IRoute
             try {
 
                 if (TualoApplication::configuration('profile', 'avatar', 'type') == 'gravatar') {
-
+                    http_response_code(200);
                     $email_id = $db->singleValue('select getSessionUser() v', [], 'v');
                     $default = "identicon";
 
@@ -113,6 +115,7 @@ class Avatar implements IRoute
                     TualoApplication::contenttype('image/jpeg');
                     TualoApplication::body(file_get_contents($gravatar_url));
                 } else {
+                    http_response_code(200);
                     $name =  $db->singleValue('select getSessionUserFullName() n', [], 'n');
                     if (trim($name) == '') $name = $db->singleValue('select getSessionUser() n', [], 'n');
                     $avatar = new InitialAvatar();
