@@ -13,8 +13,9 @@ class Install extends CommandLineInstallSQL  implements ICommandline
     }
     public static $shortName  = 'profile';
     public static $files = [
-        'view_session_oauth' => 'setup view_session_oauth ',
-        'dashboard' => 'setup dashboard ',
+        'install/view_session_oauth' => 'setup view_session_oauth ',
+        'install/view_session_oauth.ds' => 'setup view_session_oauth.ds ',
+        'install/dashboard' => 'setup dashboard ',
 
     ];
 }
