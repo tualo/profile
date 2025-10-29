@@ -6,7 +6,7 @@ use Tualo\Office\Basic\TualoApplication as App;
 use Tualo\Office\Basic\Route as BasicRoute;
 use Tualo\Office\Basic\IRoute;
 
-class SwitchClient implements IRoute
+class SwitchClient extends \Tualo\Office\Basic\RouteWrapper
 {
     public static function register()
     {

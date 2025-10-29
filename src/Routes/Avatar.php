@@ -8,7 +8,7 @@ use Tualo\Office\Basic\IRoute;
 use YoHang88\LetterAvatar\LetterAvatar;
 use LasseRafn\InitialAvatarGenerator\InitialAvatar;
 
-class Avatar implements IRoute
+class Avatar extends \Tualo\Office\Basic\RouteWrapper
 {
     public static function register()
     {
