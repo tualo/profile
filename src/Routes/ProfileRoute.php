@@ -38,7 +38,11 @@ class ProfileRoute extends \Tualo\Office\Basic\RouteWrapper
             }
 
             TualoApplication::contenttype('application/json');
-        }, array('get', 'post'), true);
+        }, array('get', 'post'), true, [
+            'errorOnUnexpected' => true,
+            'errorOnInvalid' => true,
+            'fields' => []
+        ]);
 
 
         Route::add('/profile/save', function () {
@@ -98,6 +102,71 @@ class ProfileRoute extends \Tualo\Office\Basic\RouteWrapper
             }
 
             TualoApplication::contenttype('application/json');
-        }, array('get', 'post'), true);
+        }, array('get', 'post'), true, [
+            'errorOnUnexpected' => true,
+            'errorOnInvalid' => true,
+            'fields' =>
+            [
+                'vorname' => [
+                    'required' => true,
+                    'type' => 'string',
+                    'max_length' => 50,
+                    'pattern' => '/^[0-9a-zA-ZäöüÄÖÜß\s\-]+$/u',  // nur Buchstaben, Ziffern, Leerzeichen, Bindestriche
+                    'min' => 0,
+                    'max' => 10000000
+                ],
+                'nachname' => [
+                    'required' => true,
+                    'type' => 'string',
+                    'max_length' => 50,
+                    'pattern' => '/^[0-9a-zA-ZäöüÄÖÜß\s\-]+$/u',  // nur Buchstaben, Ziffern, Leerzeichen, Bindestriche
+                    'min' => 0,
+                    'max' => 10000000
+                ],
+                'email' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 30
+                ],
+                'telefon' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 30,
+                    'pattern' => '/^[0-9\+\-\s\/\(\)]+$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
+                ],
+                'fax' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 30,
+                    'pattern' => '/^[0-9\+\-\s\/\(\)]+$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
+                ],
+                'mobile' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 30,
+                    'pattern' => '/^[0-9\+\-\s\/\(\)]+$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
+                ],
+                'zeichen' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 50
+                ],
+                'old_password' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 50
+                ],
+                'new_password' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 50
+                ],
+                'new_password_rep' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 50
+                ]
+            ]
+        ]);
     }
 }
