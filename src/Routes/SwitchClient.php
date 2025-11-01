@@ -8,6 +8,10 @@ use Tualo\Office\Basic\IRoute;
 
 class SwitchClient extends \Tualo\Office\Basic\RouteWrapper
 {
+    public static function scope(): string
+    {
+        return 'profile.switchclient';
+    }
     public static function register()
     {
 
@@ -38,6 +42,6 @@ class SwitchClient extends \Tualo\Office\Basic\RouteWrapper
                     }
                 }
             }
-        }, ['get'], false);
+        }, ['get'], true, [], self::scope());
     }
 }
