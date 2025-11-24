@@ -128,6 +128,11 @@ class ProfileRoute extends \Tualo\Office\Basic\RouteWrapper
                     'type' => 'string',
                     'max_length' => 30
                 ],
+                'login' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'max_length' => 130
+                ],
                 'telefon' => [
                     'required' => false,
                     'type' => 'string',
