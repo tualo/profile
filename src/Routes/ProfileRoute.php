@@ -137,19 +137,19 @@ class ProfileRoute extends \Tualo\Office\Basic\RouteWrapper
                     'required' => false,
                     'type' => 'string',
                     'max_length' => 30,
-                    'pattern' => '/^[0-9\+\-\s\/\(\)]+$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
+                    'pattern' => '/^[0-9\+\-\s\/\(\)]*$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
                 ],
                 'fax' => [
                     'required' => false,
                     'type' => 'string',
                     'max_length' => 30,
-                    'pattern' => '/^[0-9\+\-\s\/\(\)]+$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
+                    'pattern' => '/^[0-9\+\-\s\/\(\)]*$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
                 ],
                 'mobile' => [
                     'required' => false,
                     'type' => 'string',
                     'max_length' => 30,
-                    'pattern' => '/^[0-9\+\-\s\/\(\)]+$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
+                    'pattern' => '/^[0-9\+\-\s\/\(\)]*$/u'  // nur Ziffern, Leerzeichen, Bindestriche, Plus, Klammern, Slash
                 ],
                 'zeichen' => [
                     'required' => false,
