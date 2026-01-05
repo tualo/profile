@@ -1,7 +1,7 @@
 Ext.define('Tualo.profile.lazy.ProfilePanel', {
     extend: "Ext.panel.Panel",
     bodyPadding: 10,
-    requires:[
+    requires: [
         'Tualo.profile.lazy.controller.ProfilePanel',
         'Tualo.profile.lazy.models.ProfilePanel'
     ],
@@ -10,9 +10,9 @@ Ext.define('Tualo.profile.lazy.ProfilePanel', {
         boxReady: 'boxready'
     },
     controller: 'cmp_profile_viewport',
-	viewModel: {
-		type: 'cmp_profile_viewport'
-	},
+    viewModel: {
+        type: 'cmp_profile_viewport'
+    },
     layout: 'fit',
     items: [
         {
@@ -43,12 +43,14 @@ Ext.define('Tualo.profile.lazy.ProfilePanel', {
                             xtype: 'textfield',
                             bind: '{vorname}',
                             name: 'vorname',
+                            allowBlank: false,
                             fieldLabel: 'Vorname'
                         },
                         {
                             xtype: 'textfield',
                             bind: '{nachname}',
                             name: 'nachname',
+                            allowBlank: false,
                             fieldLabel: 'Nachname'
                         },
                         {
@@ -148,6 +150,6 @@ Ext.define('Tualo.profile.lazy.ProfilePanel', {
                 disabled: '{nextDisabled}'
             },
             handler: 'save'
-        }   
+        }
     ]
 });
