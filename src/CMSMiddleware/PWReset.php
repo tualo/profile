@@ -7,22 +7,21 @@ use Tualo\Office\Basic\TualoApplication;
 class PWReset
 {
 
-    public static function reset(): callable
+    public static function reset(string $username, string $password, ?string $secretPIN): bool
     {
-        return function ($username, $password, $secretPIN): bool {
-            $db = TualoApplication::get('session')->db;
-            if (!is_null($db)) {
-                if ($secretPIN === null) return false;
-                if ($_SESSION['random_pin'] == $secretPIN) {
-                    $db->direct('select set_login_sha2({username},{password}) ', [
-                        'username' => $username,
-                        'password' => $password
-                    ]);
-                    return true;
-                }
+        $db = TualoApplication::get('session')->db;
+        if (!is_null($db)) {
+            if ($secretPIN === null) return false;
+            if ($_SESSION['random_pin'] == $secretPIN) {
+                $db->direct('select set_login_sha2({username},{password}) ', [
+                    'username' => $username,
+                    'password' => $password
+                ]);
+
+                return true;
             }
-            return false;
-        };
+        }
+        return false;
     }
 
 
