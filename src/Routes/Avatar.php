@@ -5,7 +5,6 @@ namespace Tualo\Office\Profile\Routes;
 use Tualo\Office\Basic\TualoApplication;
 use Tualo\Office\Basic\Route;
 use Tualo\Office\Basic\IRoute;
-use YoHang88\LetterAvatar\LetterAvatar;
 use LasseRafn\InitialAvatarGenerator\InitialAvatar;
 
 class Avatar extends \Tualo\Office\Basic\RouteWrapper
@@ -44,7 +43,7 @@ class Avatar extends \Tualo\Office\Basic\RouteWrapper
                     $avatar = new InitialAvatar();
                     $image = $avatar->name($name)->generate();
 
-                    TualoApplication::body($image->response('png', $size));
+                    TualoApplication::body((string) $image->toPng());
 
                     /*
                     $avatar->name($name)
@@ -65,7 +64,7 @@ class Avatar extends \Tualo\Office\Basic\RouteWrapper
                 $avatar = new InitialAvatar();
                 $image = $avatar->name('not set')->generate();
                 TualoApplication::contenttype('image/jpeg');
-                TualoApplication::body($image->response('jpg', $size));
+                TualoApplication::body((string) $image->toJpeg($size));
             }
         }, ['get'], true);
 
@@ -90,13 +89,13 @@ class Avatar extends \Tualo\Office\Basic\RouteWrapper
                     http_response_code(200);
                     $image = $avatar->name($name)->generate();
                     TualoApplication::contenttype('image/png');
-                    TualoApplication::body($image->response('png', $size));
+                    TualoApplication::body((string) $image->toPng());
                 }
             } catch (\Exception $e) {
                 $avatar = new InitialAvatar();
                 $image = $avatar->name('not set')->generate();
                 TualoApplication::contenttype('image/jpeg');
-                TualoApplication::body($image->response('jpg', $size));
+                TualoApplication::body((string) $image->toJpeg($size));
             }
         }, ['get'], true);
 
@@ -121,13 +120,13 @@ class Avatar extends \Tualo\Office\Basic\RouteWrapper
                     $avatar = new InitialAvatar();
                     $image = $avatar->name($name)->generate();
                     TualoApplication::contenttype('image/png');
-                    TualoApplication::body($image->response('png', $size));
+                    TualoApplication::body((string) $image->toPng());
                 }
             } catch (\Exception $e) {
                 $avatar = new InitialAvatar();
                 $image = $avatar->name('not set')->generate();
                 TualoApplication::contenttype('image/jpeg');
-                TualoApplication::body($image->response('jpg', $size));
+                TualoApplication::body((string) $image->toJpeg($size));
             }
         }, ['get'], true);
     }
